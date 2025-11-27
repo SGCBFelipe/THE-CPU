@@ -38,5 +38,6 @@ public class player : MonoBehaviour {
             moveSpeed = 5f;
         }
 
+
     }
 }
