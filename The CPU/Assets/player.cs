@@ -9,6 +9,8 @@ public class player : MonoBehaviour {
 
 
 
+
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
