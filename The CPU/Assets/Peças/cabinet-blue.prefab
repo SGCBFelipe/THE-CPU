@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.29989
+      value: 5.788
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,19 +22,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4976474
+      value: -0.38571256
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4976771
+      value: -0.38573444
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.50231206
+      value: 0.5926191
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5023418
+      value: -0.5926528
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90.538
+      value: -246.114
       objectReference: {fileID: 0}
     - target: {fileID: -8212433636372587519, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9c987bd96fe353042ace67453322f9a8, type: 2}
     - target: {fileID: 919132149155446097, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: m_Name
-      value: cabinet (1)
+      value: cabinet-blue
       objectReference: {fileID: 0}
     - target: {fileID: 1409869960052686682, guid: 7c1fb140e0617b84aadbdce5644325fc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
