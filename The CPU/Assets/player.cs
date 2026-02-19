@@ -1,10 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class player : MonoBehaviour { 
 
     CharacterController controller;
-    public float moveSpeed = 1f;
+    public float moveSpeed;
     public Transform head;
+
 
 
     void Start()
@@ -26,5 +28,15 @@ public class player : MonoBehaviour {
         Vector3 finalVelocity = (forwardinput * cameraRight) + (strafeinput * cameraForward);
 
         controller.Move(finalVelocity * moveSpeed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.LeftShift)) 
+        {
+            moveSpeed = 7f;
+        }
+        else
+        {
+            moveSpeed = 5f;
+        }
+
     }
 }
