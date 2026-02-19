@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class comparativo : MonoBehaviour
 {
-    public GameObject[] GameObject;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject[] computerPieces;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        foreach (GameObject CP in computerPieces)
+        {
+            if (other == CP)
+            {
+                Debug.Log("Verdadeiro");
+            }
+            else
+            {
+                Debug.Log("Falso");
+            }
+        }
     }
 }
