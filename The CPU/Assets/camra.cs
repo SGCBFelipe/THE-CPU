@@ -5,7 +5,7 @@ using UnityEngine;
 public class camra : MonoBehaviour
 {
     public Transform cameraTransform;
-    public float cameraSens = 700f;
+    [Range(100f, 1000f)]public float cameraSens = 500f;
     float cameraRotation;
     float maxCameraAngle = 60f;
     float minCameraAngle = -60f;

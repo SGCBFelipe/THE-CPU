@@ -107,8 +107,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2100950335313731952, guid: 2c52fc6bb76ca6c46ab5238da0ee71c4, type: 3}
+      propertyPath: m_Range
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100950335313731952, guid: 2c52fc6bb76ca6c46ab5238da0ee71c4, type: 3}
       propertyPath: m_Intensity
-      value: 3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100950335313731952, guid: 2c52fc6bb76ca6c46ab5238da0ee71c4, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2529696263993148571, guid: 2c52fc6bb76ca6c46ab5238da0ee71c4, type: 3}
       propertyPath: m_Name

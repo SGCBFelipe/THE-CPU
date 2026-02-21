@@ -8,7 +8,7 @@ public class holdObject : MonoBehaviour
     public float throwForce = 500f; //force at which the object is thrown at
     public float pickUpRange = 5f; //how far the player can pickup the object from
     private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
-    private GameObject heldObj; //object which we pick up
+    [SerializeField] private GameObject heldObj; //object which we pick up
     private Rigidbody heldObjRb; //rigidbody of object we pick up
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
@@ -37,6 +37,7 @@ public class holdObject : MonoBehaviour
                     if (hit.transform.gameObject.tag == "canPickUp")
                     {
                         //pass in object hit into the PickUpObject function
+                        Debug.Log("Tem a Tag");
                         PickUpObject(hit.transform.gameObject);
                     }
                 }
