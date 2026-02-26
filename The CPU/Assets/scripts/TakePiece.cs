@@ -26,11 +26,16 @@ public class TakePiece : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("É o Player");
-            if (other.GetComponent<PlayerHold>().heldObject != null)
+            PlayerHold playerHold = other.GetComponent<PlayerHold>();
+
+            if (playerHold != null && playerHold.heldObject != null)
             {
-                ComputerPiece piece = other.GetComponent<PlayerHold>().heldObject.GetComponent<ComputerPiece>();
-                TryPlacePiece(piece, other.gameObject);
+                GameObject heldItem = playerHold.heldObject;
+                ComputerPiece piece = heldItem.GetComponent<ComputerPiece>();
+
+                TryPlacePiece(piece, heldItem);
+
+                playerHold.heldObject = null; // limpa da mão do jogador
             }
         }
     }
