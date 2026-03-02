@@ -48279,7 +48279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   walkSpeed: 5
-  sprintSpeed: 7
+  sprintSpeed: 10
   gravity: -9.81
   cameraTransform: {fileID: 330585546}
   inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -48296,7 +48296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHold
   inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  pickupDistance: 5
+  pickupDistance: 7
   holdDistance: 3
   cameraTransform: {fileID: 330585546}
   heldObject: {fileID: 0}
@@ -144986,7 +144986,6 @@ MonoBehaviour:
   - {fileID: 1517441249}
   - {fileID: 1551993425}
   - {fileID: 1023613817}
-  progressIndex: 0
 --- !u!135 &7934659251153675568
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -8,14 +8,20 @@ public class TakePiece : MonoBehaviour
     // 1 = Motherboard
     // 2+ = Demais peças
     [SerializeField] private List<Transform> categories;
-    [SerializeField] private int progressIndex = 0;
+
+    private List<bool> categoryPlaced = new List<bool>();
+    private int progressIndex = 0;
 
     private void Start()
     {
-        // Desativa todas as cópias no início
-        foreach (Transform category in categories)
+        categoryPlaced.Clear();
+
+        for (int i = 0; i < categories.Count; i++)
         {
-            foreach (Transform piece in category)
+            categoryPlaced.Add(false);
+
+            // Desativa todas as cópias no início
+            foreach (Transform piece in categories[i])
             {
                 piece.gameObject.SetActive(false);
             }
@@ -24,74 +30,84 @@ public class TakePiece : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
+            return;
+
+        PlayerHold playerHold = other.GetComponent<PlayerHold>();
+
+        if (playerHold == null || playerHold.heldObject == null)
+            return;
+
+        GameObject heldItem = playerHold.heldObject;
+        ComputerPiece piece = heldItem.GetComponent<ComputerPiece>();
+
+        if (piece == null)
+            return;
+
+        bool placedSuccessfully = TryPlacePiece(piece, heldItem);
+
+        if (placedSuccessfully)
         {
-            PlayerHold playerHold = other.GetComponent<PlayerHold>();
-
-            if (playerHold != null && playerHold.heldObject != null)
-            {
-                GameObject heldItem = playerHold.heldObject;
-                ComputerPiece piece = heldItem.GetComponent<ComputerPiece>();
-
-                TryPlacePiece(piece, heldItem);
-
-                playerHold.heldObject = null; // limpa da mão do jogador
-            }
+            playerHold.heldObject = null;
         }
     }
 
-    private void TryPlacePiece(ComputerPiece piece, GameObject originalObject)
+    private bool TryPlacePiece(ComputerPiece piece, GameObject originalObject)
     {
         string categoryName = piece.category.ToString();
 
-        // Verifica se a categoria atual é a correta
-        if (progressIndex == 0 && categoryName != "Case")
+        for (int i = 0; i < categories.Count; i++)
         {
-            Debug.Log("Você precisa colocar o Gabinete primeiro!");
-            return;
-        }
-
-        if (progressIndex == 1 && categoryName != "Motherboard")
-        {
-            Debug.Log("Você precisa colocar a Motherboard agora!");
-            return;
-        }
-
-        // Procura a categoria correspondente na lista
-        foreach (Transform category in categories)
-        {
-            if (category.name == categoryName)
+            if (categories[i].name == categoryName)
             {
-                ActivateCorrectCopy(category, piece.name);
+                // 🚫 Já foi colocada?
+                if (categoryPlaced[i])
+                {
+                    Debug.Log("Essa peça já foi colocada!");
+                    return false;
+                }
 
+                // 🚫 Está fora da ordem?
+                if (i != progressIndex)
+                {
+                    if (progressIndex < categories.Count)
+                        Debug.Log("Você precisa colocar: " + categories[progressIndex].name + " primeiro!");
+                    return false;
+                }
+
+                // ✅ Ativa cópia correta
+                ActivateCorrectCopy(categories[i], piece.name);
+
+                categoryPlaced[i] = true;
                 progressIndex++;
 
                 Destroy(originalObject);
 
                 CheckCompletion();
-                return;
+                return true;
             }
         }
 
         Debug.Log("Categoria não encontrada na mesa.");
+        return false;
     }
 
     private void ActivateCorrectCopy(Transform category, string pieceName)
     {
         foreach (Transform child in category)
         {
-            if (child.name == pieceName)
-                child.gameObject.SetActive(true);
-            else
-                child.gameObject.SetActive(false);
+            child.gameObject.SetActive(child.name == pieceName);
         }
     }
 
     private void CheckCompletion()
     {
-        if (progressIndex >= categories.Count)
+        foreach (bool placed in categoryPlaced)
         {
-            Debug.Log("PC MONTADO! 🎉");
+            if (!placed)
+                return;
         }
+
+        Debug.Log("PC MONTADO! 🎉");
     }
 }
