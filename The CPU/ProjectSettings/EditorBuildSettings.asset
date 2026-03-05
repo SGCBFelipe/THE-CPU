@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 23b90490bd1fc8740a04ba7bccc30303
   - enabled: 1
-    path: Assets/Scenes/camera.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/maze.unity
+    guid: e4ca2028d533f32468b437723282b744
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
