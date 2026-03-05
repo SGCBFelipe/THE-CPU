@@ -8,6 +8,7 @@ public class TakePiece : MonoBehaviour
     // 1 = Motherboard
     // 2+ = Demais peças
     [SerializeField] private List<Transform> categories;
+    [SerializeField] private GameManager _manager;
 
     private List<bool> categoryPlaced = new List<bool>();
     private int progressIndex = 0;
@@ -63,6 +64,7 @@ public class TakePiece : MonoBehaviour
                 // 🚫 Já foi colocada?
                 if (categoryPlaced[i])
                 {
+                    _manager.AlertMessage("Essa peça já foi colocada!");
                     Debug.Log("Essa peça já foi colocada!");
                     return false;
                 }
@@ -71,6 +73,7 @@ public class TakePiece : MonoBehaviour
                 if (i != progressIndex)
                 {
                     if (progressIndex < categories.Count)
+                        _manager.AlertMessage("Você precisa colocar: " + categories[progressIndex].name + " primeiro!");
                         Debug.Log("Você precisa colocar: " + categories[progressIndex].name + " primeiro!");
                     return false;
                 }
@@ -108,6 +111,7 @@ public class TakePiece : MonoBehaviour
                 return;
         }
 
+        _manager.AlertMessage("PC MONTADO!");
         Debug.Log("PC MONTADO! 🎉");
     }
 }
